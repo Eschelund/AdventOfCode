@@ -1,6 +1,7 @@
 package Day10;
 
 public class Day10_1 {
+	//Done
 	
 	/*
 	 --- Day 10: Elves Look, Elves Say ---
@@ -41,11 +42,10 @@ public class Day10_1 {
 				}
 			}
 			temp.append("" + count + prev);
-//			System.out.println(i + " : " + temp.toString());
 			input = temp;
 		}
 		
-		System.out.println("the last number is: " + input.toString());
+		System.out.println("the lenght of the last number is: " + input.toString().length());
 
 	}
 
