@@ -66,7 +66,6 @@ public class Day11_2 {
 
 	private static String incrementTmpPW(String tmpPW) {
 		char[] charPW = tmpPW.toCharArray();
-		int carryover = 0;
 		for (int i = tmpPW.length()-1; i >= 0; i--) {
 			if (charPW[i] == 'z') {
 				charPW[i] = 'a';
