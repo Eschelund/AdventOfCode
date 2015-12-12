@@ -51,7 +51,7 @@ public class Day7_1 {
 		In little Bobby's kit's instructions booklet (provided as your puzzle input), what signal is ultimately provided to wire a?
 	 */
 	public static void main(String[] args) {
-		Map<String, Short> wires = new HashMap<String, Short>();
+		Map<String, LogicWireNote> wires = new HashMap<String, LogicWireNote>();
 		Path path = Paths.get("D:\\Workspaces\\EclipseWorkspace\\AdventOfCode2015\\src\\Day7\\input_day7.txt");
 		
 		List<String> instructions;
@@ -59,42 +59,26 @@ public class Day7_1 {
 		try {
 			instructions = Files.readAllLines(path);
 			
-			while (!instructions.isEmpty()) {
-				for (String ins : instructions) {
-					String[] s = ins.split(" ");
-					
-					if (s.length == 3) {
-						if (s[0].matches("^[0-9]*$")) {
-							wires.put(s[2], Short.parseShort(s[0]));
-						} else {
-							wires.put(s[2], wires.get(s[0]));
-						}
-					} else if (s.length == 4) {
-						if (wires.get(s[1]) != null) {
-							wires.put(s[3], LogicOperations.NOT(wires.get(s[1])));
-							instructions.remove(ins);
-						}
-					} else {
-						if (wires.get(s[0]) != null && wires.get(s[2]) != null) {
-							if (LogicOperators.AND.equals(s[1])) {
-								wires.put(s[4], LogicOperations.AND(s[0].matches("^[0-9]*$") ? Short.parseShort(s[0]) : wires.get(s[0]), wires.get(s[2])));
-							}
-							if (LogicOperators.OR.equals(s[1])) {
-								wires.put(s[4], LogicOperations.OR(s[0].matches("^[0-9]*$") ? Short.parseShort(s[0]) : wires.get(s[0]), wires.get(s[2])));
-							}
-							if (LogicOperators.LSHIFT.equals(s[1])) {
-								wires.put(s[4], LogicOperations.LSHIFT(wires.get(s[0]), Short.parseShort(s[2])));
-							}
-							if (LogicOperators.RSHIFT.equals(s[1])) {
-								wires.put(s[4], LogicOperations.RSHIFT(wires.get(s[0]), Short.parseShort(s[2])));
-							}
-							instructions.remove(ins);
-						}
+			for (String s : instructions) {
+				String[] parts = s.split(" ");
+				if (parts.length == 3) {
+					wires.put(parts[2], new LogicWireNote(Short.parseShort(parts[0])));
+				} else if (parts.length == 4) {
+					wires.put(parts[3], new LogicWireNote(LogicOperators.NOT, wires.get(parts[1])));
+				} else if (parts.length == 5) {
+					if (parts[1].equals(LogicOperators.AND)) {
+						wires.put(parts[4], new LogicWireNote(LogicOperators.AND, wires.get(parts[0]), wires.get(parts[2])));
+					} else if (parts[1].equals(LogicOperators.OR)) {
+						wires.put(parts[4], new LogicWireNote(LogicOperators.OR, wires.get(parts[0]), wires.get(parts[2])));
+					} else if (parts[1].equals(LogicOperators.RSHIFT)) {
+						wires.put(parts[4], new LogicWireNote(LogicOperators.RSHIFT, wires.get(parts[0]), Integer.parseInt(parts[2])));
+					} else if (parts[1].equals(LogicOperators.LSHIFT)) {
+						wires.put(parts[4], new LogicWireNote(LogicOperators.LSHIFT, wires.get(parts[0]), Integer.parseInt(parts[2])));
 					}
 				}
 			}
 			
-			System.out.println("Wire a holds the value: " + wires.get("a"));
+			System.out.println("Wire a holds the value: " + wires.get("a").getResult());
 		} catch (IOException e) {
 			e.printStackTrace();
 		};
