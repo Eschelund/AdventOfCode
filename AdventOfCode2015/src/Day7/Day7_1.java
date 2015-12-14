@@ -52,7 +52,7 @@ public class Day7_1 {
 	 */
 	public static void main(String[] args) {
 		Map<String, LogicWireNote> wires = new HashMap<String, LogicWireNote>();
-		Path path = Paths.get("D:\\Workspaces\\EclipseWorkspace\\AdventOfCode2015\\src\\Day7\\input_day7.txt");
+		Path path = Paths.get("D:\\Repositories\\AdventOfCode\\AdventOfCode2015\\src\\Day7\\input_day7.txt");
 		
 		List<String> instructions;
 
@@ -62,23 +62,27 @@ public class Day7_1 {
 			for (String s : instructions) {
 				String[] parts = s.split(" ");
 				if (parts.length == 3) {
-					wires.put(parts[2], new LogicWireNote(Short.parseShort(parts[0])));
+					if (parts[0].matches("d")) {
+						wires.put(parts[2], new LogicWireNote(parts[2],Short.parseShort(parts[0])));
+					} else {
+						wires.put(parts[2], new LogicWireNote(parts[2],parts[0]));
+					}
 				} else if (parts.length == 4) {
-					wires.put(parts[3], new LogicWireNote(LogicOperators.NOT, wires.get(parts[1])));
+					wires.put(parts[3], new LogicWireNote(parts[3],LogicOperators.NOT, parts[1]));
 				} else if (parts.length == 5) {
-					if (parts[1].equals(LogicOperators.AND)) {
-						wires.put(parts[4], new LogicWireNote(LogicOperators.AND, wires.get(parts[0]), wires.get(parts[2])));
-					} else if (parts[1].equals(LogicOperators.OR)) {
-						wires.put(parts[4], new LogicWireNote(LogicOperators.OR, wires.get(parts[0]), wires.get(parts[2])));
-					} else if (parts[1].equals(LogicOperators.RSHIFT)) {
-						wires.put(parts[4], new LogicWireNote(LogicOperators.RSHIFT, wires.get(parts[0]), Integer.parseInt(parts[2])));
-					} else if (parts[1].equals(LogicOperators.LSHIFT)) {
-						wires.put(parts[4], new LogicWireNote(LogicOperators.LSHIFT, wires.get(parts[0]), Integer.parseInt(parts[2])));
+					if (parts[1].equals(LogicOperators.AND.get())) {
+						wires.put(parts[4], new LogicWireNote(parts[4],LogicOperators.AND, parts[0], parts[2]));
+					} else if (parts[1].equals(LogicOperators.OR.get())) {
+						wires.put(parts[4], new LogicWireNote(parts[4],LogicOperators.OR, parts[0], parts[2]));
+					} else if (parts[1].equals(LogicOperators.RSHIFT.get())) {
+						wires.put(parts[4], new LogicWireNote(parts[4],LogicOperators.RSHIFT, parts[0], Integer.parseInt(parts[2])));
+					} else if (parts[1].equals(LogicOperators.LSHIFT.get())) {
+						wires.put(parts[4], new LogicWireNote(parts[4],LogicOperators.LSHIFT, parts[0], Integer.parseInt(parts[2])));
 					}
 				}
 			}
 			
-			System.out.println("Wire a holds the value: " + wires.get("a").getResult());
+			System.out.println("Wire a holds the value: " + wires.get("a").getResult(wires));
 		} catch (IOException e) {
 			e.printStackTrace();
 		};

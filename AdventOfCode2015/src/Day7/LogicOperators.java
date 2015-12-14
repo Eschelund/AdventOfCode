@@ -1,7 +1,7 @@
 package Day7;
 
 public enum LogicOperators {
-	AND("AND"), OR("OR"), NOT("NOT"), LSHIFT("LSHIFT"), RSHIFT("RSHIFT");
+	AND("AND"), OR("OR"), NOT("NOT"), LSHIFT("LSHIFT"), RSHIFT("RSHIFT"), NAN("NAN");
 	
 	private String name;
 	
