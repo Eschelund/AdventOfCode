@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Day14_2 {
+	//Done
 	
 	/*
 	 --- Part Two ---
@@ -46,8 +47,13 @@ public class Day14_2 {
 						leadingRaindeer = deer;
 					}
 				}
-				leadingRaindeer.addPoint();
-				raindeers.replace(leadingRaindeer.name(), leadingRaindeer);
+				
+				for (Raindeer d : raindeers.values()) {
+					if (d.getRange() == leadingRaindeer.getRange()) {
+						d.addPoint();
+						raindeers.replace(d.name(), d);
+					}
+				}				
 			}
 			
 			for (Raindeer d : raindeers.values()) {
