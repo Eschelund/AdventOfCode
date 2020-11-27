@@ -22,7 +22,7 @@ public class Day3_2 {
 	 * ^v^v^v^v^v now delivers presents to 11 houses, with Santa going one direction and Robo-Santa going the other.
 	 */
 	public static void main(String[] args) {
-		Path path = Paths.get("D:\\Workspaces\\EclipseWorkspace\\AdventOfCode2015\\src\\Day3\\input_day3.txt");
+		Path path = Paths.get("D:\\Repositories\\AdventOfCode\\AdventOfCode2015\\src\\Day3\\input_day3.txt");
 		byte[] bs;
 		try {
 			bs = Files.readAllBytes(path);

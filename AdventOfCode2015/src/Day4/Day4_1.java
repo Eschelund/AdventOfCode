@@ -18,7 +18,7 @@ public class Day4_1 {
 	 */
 
 	public static void main(String[] args) {
-		String key = new String("iwrupvqb");
+		String key = new String("yzbqklnj");
 		int baseNumber = 1;
 		boolean found = false;
 		String md5 = "";

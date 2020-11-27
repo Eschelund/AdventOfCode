@@ -21,7 +21,7 @@ public class Day3_1 {
 	 * ^v^v^v^v^v delivers a bunch of presents to some very lucky children at only 2 houses.
 	 */
 	public static void main(String[] args) {
-		Path path = Paths.get("D:\\Workspaces\\EclipseWorkspace\\AdventOfCode2015\\src\\Day3\\input_day3.txt");
+		Path path = Paths.get("D:\\Repositories\\AdventOfCode\\AdventOfCode2015\\src\\Day3\\input_day3.txt");
 		byte[] bs;
 		try {
 			bs = Files.readAllBytes(path);

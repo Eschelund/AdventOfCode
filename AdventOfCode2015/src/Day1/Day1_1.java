@@ -13,7 +13,7 @@ public class Day1_1 {
 		// TODO Auto-generated method stub
 		try {
 			int res = 0;
-			Path path = Paths.get("D:\\Workspaces\\EclipseWorkspace\\AdventOfCode2015\\src\\Day1\\input.txt");
+			Path path = Paths.get("D:\\Repositories\\AdventOfCode\\AdventOfCode2015\\src\\Day1\\input.txt");
 			byte[] bs = Files.readAllBytes(path);
 			String input = new String(bs);
 			

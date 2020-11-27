@@ -31,7 +31,7 @@ public class Day5_1 {
 	
 	public static void main(String[] args) {
 		int res = 0;
-		Path path = Paths.get("D:\\Workspaces\\EclipseWorkspace\\AdventOfCode2015\\src\\Day5\\input_day5.txt");
+		Path path = Paths.get("D:\\Repositories\\AdventOfCode\\AdventOfCode2015\\src\\Day5\\input_day5.txt");
 		
 		List<String> names;
 		

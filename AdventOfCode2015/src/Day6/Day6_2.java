@@ -33,7 +33,7 @@ public class Day6_2 {
 	private static int[][] map = new int[1000][1000];
 	
 	public static void main(String[] args) {
-		Path path = Paths.get("D:\\Workspaces\\EclipseWorkspace\\AdventOfCode2015\\src\\Day6\\input_day6.txt");
+		Path path = Paths.get("D:\\Repositories\\AdventOfCode\\AdventOfCode2015\\src\\Day6\\input_day6.txt");
 		
 		List<String> instructions;
 

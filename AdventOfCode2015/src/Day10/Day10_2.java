@@ -15,7 +15,7 @@ public class Day10_2 {
 
 	public static void main(String[] args) {
 		StringBuilder input = new StringBuilder();
-		input.append("1321131112");
+		input.append("3113322113");
 		int prev = 0;
 		
 		for (int i = 0; i < 50; i++) {

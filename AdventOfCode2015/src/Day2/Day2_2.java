@@ -23,7 +23,7 @@ public class Day2_2 {
 	public static void main(String[] args) {
 		
 		int res = 0;
-		Path path = Paths.get("D:\\Workspaces\\EclipseWorkspace\\AdventOfCode2015\\src\\Day2\\input.txt");
+		Path path = Paths.get("D:\\Repositories\\AdventOfCode\\AdventOfCode2015\\src\\Day2\\input.txt");
 		List<String> presents;
 		try {
 			presents = Files.readAllLines(path);
