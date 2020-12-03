@@ -36,7 +36,7 @@ public class Day01_1 {
 	*/
 	
 	public static void main(String[] args) {
-		Path path = Paths.get("D:\\Repositories\\AdventOfCode\\AdventOfCode2020\\src\\Day01\\input_day1.txt");
+		Path path = Paths.get("C:\\Users\\Ricco\\IdeaProjects\\AdventOfCode\\AdventOfCode2020\\src\\Day01\\input_day1.txt");
 		
 		try {
 			List<String> instructions = Files.readAllLines(path);
